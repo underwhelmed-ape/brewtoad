@@ -5,18 +5,20 @@ import extract
 # for page get get_html
 #
 start_page = 1
-end_page =
+end_page = 2
 
 page = start_page
 
+output_path = ''
 
-#
-while page <= end_page:
+url = 'https://www.brewtoad.com/recipes?page={page}&sort=rank'.format(page=1)
 
-    for each recipe on page
+extract.get_html(url)
 
-    output_path = ''
 
-    download data and save to output_path
 
-    
+# go to page and get raw html code
+# inside the html, get the links for each of the recipes pages
+# for each recipe page, get the get_html
+# in each recipe html, find the xml file download link
+# download the xml into output_path

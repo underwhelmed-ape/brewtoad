@@ -13,27 +13,31 @@
 # urls
 #
 
-
-from lxml import html
 import requests
 from requests.exceptions import RequestException
 from contextlib import closing
-from time import sleep
-import json
-import argparse
-from collections import OrderedDict
-from time import sleep
-from bs4 import BeautifulSoup
+
 
 # download webpage using requests
 # this will gather the raw html file for each url specified
 
-url = "https://www.brewtoad.com/recipes?page=1&sort=rank"
-response = requests.get(url)
-response = response.content
 
-print(len(response))
+def get_html(web_page):
+    try:
+        request = requests.get(web_page)
+        response = request.content
+        print('HTML request code: ' + str(request.status_code))
+        print(len(response))
+        return response
+    except:
+        log_error()
+
+def check_response_is_html(response):
+    content_type = response.headers['Content-Type'].lower()
+    return (resp.status_code == 200
+            and content_type is not None
+            and content_type.find('html') > -1)
 
 
-def get_html(url):
-    pass
+def log_error(e):
+    print(e)
