@@ -33,3 +33,7 @@ response = requests.get(url)
 response = response.content
 
 print(len(response))
+
+
+def get_html(url):
+    pass
