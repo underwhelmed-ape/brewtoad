@@ -24,17 +24,19 @@ from contextlib import closing
 
 def get_html(web_page):
     try:
-        request = requests.get(web_page)
-        response = request.content
-        print('HTML request code: ' + str(request.status_code))
-        print(len(response))
-        return response
-    except:
-        log_error()
+        with closing(requests.get(web_page)) as response:
+            if check_response_is_html(response):
+                return response.content
+                print('HTML request code: ' + str(request.status_code))
+            else:
+                return None
+                print('HTML request code: ' + str(request.status_code))
+    except RequestException as e:
+        log_error('Error during request to {0} : {1}'.format(web_page, str(e)))
 
 def check_response_is_html(response):
     content_type = response.headers['Content-Type'].lower()
-    return (resp.status_code == 200
+    return (response.status_code == 200
             and content_type is not None
             and content_type.find('html') > -1)
 
