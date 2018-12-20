@@ -17,7 +17,7 @@ while recipe_page <= end_page:
     try:
         url = 'https://www.brewtoad.com/recipes?page={page}&sort=rank'.format(page=recipe_page)
 
-        #extract.get_html(url)
+        response = extract.get_html(url)
 
         print(url)
     except:
