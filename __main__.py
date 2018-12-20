@@ -7,13 +7,22 @@ import extract
 start_page = 1
 end_page = 2
 
-page = start_page
+recipe_page = start_page
+
 
 output_path = ''
 
-url = 'https://www.brewtoad.com/recipes?page={page}&sort=rank'.format(page=1)
+while recipe_page <= end_page:
+    try:
+        url = 'https://www.brewtoad.com/recipes?page={page}&sort=rank'.format(page=recipe_page)
 
-extract.get_html(url)
+        #extract.get_html(url)
+
+        print(url)
+    except:
+        print('Cannot return url')
+
+    recipe_page = recipe_page + 1
 
 
 
