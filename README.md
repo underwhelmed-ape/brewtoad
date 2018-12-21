@@ -1,6 +1,6 @@
 # brewtoad
 
-Brewtoad is a online large platform for the homebrewing community around the world.
+Brewtoad is an online large platform for the home-brewing community around the world.
 
 The website has amassed over 500,000 community shared recipes for beer, but have recently announced they will be shutting down, removing access to this collection.
 

@@ -22,7 +22,7 @@ def get_html(web_page):
             else:
                 return None
     except:
-        print('Error during request to {0} : {1}'.format(web_page, str(e)))
+        print('Error during request to {0}'.format(web_page))
 
 
 # This takes a response and outputs True if html

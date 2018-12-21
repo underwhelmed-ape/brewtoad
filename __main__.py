@@ -16,12 +16,10 @@ print(output_path)
 
 while recipe_page <= end_page:
 # go to page and get raw html code
+# if html file, will return its content
     url = 'https://www.brewtoad.com/recipes?page={page}&sort=rank'.format(page=recipe_page)
     response = extract.get_html(url)
     print(len(response))
-    print(type(response))
-    print(url)
-
 # inside the html, get the links for each of the recipes pages
     recipe_links = transform.get_recipe_urls_from_html(response)
     #recipe_links = recipe_links.append()
