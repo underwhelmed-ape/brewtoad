@@ -3,7 +3,14 @@ import extract
 
 from bs4 import BeautifulSoup
 
-htmls_list = 'https://www.brewtoad.com/recipes?page=1&sort=rank'
+# at the moent this is just one htmls_list
+# will need to loop through a list of htmls
 
-def get_recipe_urls_from_html(htmls_list):
-    pass
+htmls_list = extract.get_html('https://www.brewtoad.com/recipes?page=1&sort=rank')
+html = BeautifulSoup(htmls_list, 'html.parser')
+
+def get_recipe_urls_from_html(html):
+    for li in html.select('li'):
+        print(li.text)
+
+get_recipe_urls_from_html(html)
